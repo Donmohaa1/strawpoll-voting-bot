@@ -206,15 +206,15 @@ class Main:
         try:
             headers = \
                 {
-                    'Host': 'strawpoll.de',
+                    'Host': 'strawpoll.com',
                     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0',
                     'Accept': '*/*',
                     'Accept-Language': 'de,en-US;q=0.7,en; q=0.3',
-                    'Referer': 'https://strawpoll.de/' + self.surveyId,
+                    'Referer': 'https://strawpoll.com/' + self.surveyId,
                     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
                     'X-Requested-With': 'XMLHttpRequest',
                     'Content-Length': '29',
-                    'Cookie': 'lang=de',
+                    'Cookie': 'lang=en',
                     'DNT': '1',
                     'Connection': 'close'
                 }
@@ -222,7 +222,7 @@ class Main:
             proxyDictionary = {"https": httpsProxy}
 
             # Connect to server
-            r = requests.post('https://strawpoll.de/vote', data=payload, headers=headers, proxies=proxyDictionary, timeout=self.proxyTimeout)
+            r = requests.post('https://strawpoll.com/polls', data=payload, headers=headers, proxies=proxyDictionary, timeout=self.proxyTimeout)
             json = r.json()
 
             # Check if succeeded
